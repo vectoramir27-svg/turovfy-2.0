@@ -1,0 +1,228 @@
+/* =================================================================
+   ПОЛНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ (iOS / Android / PWA)
+   ================================================================= */
+@media (max-width: 768px) {
+  body {
+    /* Динамический отступ под системную панель + островок + мини-плеер */
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: calc(150px + env(safe-area-inset-bottom, 16px));
+  }
+
+  nav.desktop-nav {
+    padding: 12px 16px;
+    padding-top: max(12px, env(safe-area-inset-top, 0px));
+  }
+  
+  .nav-pill, .search-kbd, .volume-input, .volume-btn {
+    display: none !important;
+  }
+
+  /* Нижний островок навигации (прижат к низу с учетом safe-area) */
+  .mobile-island-wrapper {
+    display: flex;
+    bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    width: calc(100% - 24px);
+    max-width: 380px;
+    z-index: 350;
+  }
+
+  .mobile-island-nav {
+    height: 60px;
+    background: rgba(20, 20, 24, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Мобильный мини-док плеер (парит прямо над островком) */
+  .dock-player {
+    bottom: calc(78px + max(12px, env(safe-area-inset-bottom, 12px)));
+    left: 12px;
+    right: 12px;
+    transform: none;
+    width: auto;
+    max-width: none;
+    height: 58px;
+    padding: 0 12px 0 8px;
+    border-radius: 18px;
+    background: rgba(26, 26, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 340;
+    gap: 8px;
+  }
+
+  .dock-left {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+    gap: 10px;
+    max-width: none;
+  }
+
+  .dock-cover-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  .dock-info {
+    max-width: none;
+  }
+
+  .dock-info h5 {
+    font-size: 13.5px;
+    line-height: 1.2;
+  }
+
+  .dock-info p {
+    font-size: 11px;
+    margin-top: 1px;
+  }
+
+  .slider-container, 
+  .ctrl-btn.ctrl-step, 
+  .lyrics-btn,
+  #dockDislikeBtn {
+    display: none !important;
+  }
+
+  .dock-controls {
+    width: auto;
+    order: 3;
+  }
+
+  .dock-right {
+    width: auto;
+    order: 2;
+    gap: 2px;
+  }
+
+  .ctrl-play {
+    width: 36px;
+    height: 36px;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Моя волна: компактная мобильная карточка */
+  .wave-hero-container {
+    margin: 6px auto 10px auto;
+    padding: 0 14px;
+  }
+  
+  .wave-card {
+    height: 220px;
+    padding: 18px 20px;
+    border-radius: 22px;
+  }
+
+  .wave-title-box h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .wave-big-play-btn {
+    width: 58px;
+    height: 58px;
+  }
+
+  /* Мобильная сетка треков */
+  .tracks-wrapper, .playlists-container, .artist-page-container, .settings-wrapper {
+    padding: 0 14px;
+  }
+
+  .tracks-grid, 
+  #playlistsGrid, 
+  #playlistTracksGrid, 
+  #artistTracksGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .tfc-thumb-box {
+    border-radius: 14px;
+  }
+
+  /* ПОЛНОЭКРАННЫЙ ПЛЕЕР НА МОБИЛКЕ (Нативный вид Spotify) */
+  .fullscreen-player {
+    justify-content: space-between;
+    padding: max(16px, env(safe-area-inset-top, 16px)) 24px max(24px, env(safe-area-inset-bottom, 24px)) 24px;
+    background: linear-gradient(180deg, var(--accent-theme) 0%, #09090b 85%);
+  }
+
+  .fs-close-btn {
+    top: max(16px, env(safe-area-inset-top, 16px));
+    left: 20px;
+    right: auto;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .fs-content {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 40px;
+  }
+
+  .fs-cover-box {
+    width: 82vw;
+    height: 82vw;
+    max-width: 340px;
+    max-height: 340px;
+    margin: 0 auto;
+    border-radius: 24px;
+  }
+
+  .fs-cover-overlay {
+    display: none !important; /* Убираем оверлей hover на сенсорных экранах */
+  }
+
+  .fs-meta {
+    text-align: left;
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+
+  .fs-title {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .fs-artist {
+    font-size: 16px;
+    color: var(--text-sub);
+  }
+
+  .fs-time-row {
+    opacity: 1; /* На мобилке время должно быть видно всегда */
+    transform: none;
+    margin-top: 6px;
+  }
+
+  /* Дополнительная панель кнопок фуллскрина под ползунком */
+  .fs-mobile-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .fs-mobile-controls-row .ctrl-play {
+    width: 64px;
+    height: 64px;
+  }
+
+  .fs-mobile-controls-row .ctrl-btn svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Тост над навигацией */
+  .toast-popup {
+    bottom: calc(145px + env(safe-area-inset-bottom, 12px));
+  }
+}
